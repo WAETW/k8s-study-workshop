@@ -11,7 +11,7 @@ def hello():
     request_counter.inc()
     return "Hello, World!"
 
-@app.route("/Metrics", methods=['GET'])
+@app.route("/metrics", methods=['GET'])
 def request_count():
     return Response(prometheus_client.generate_latest(request_counter), mimetype='text/plain')
 
