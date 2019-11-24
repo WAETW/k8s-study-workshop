@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, render_template
 import prometheus_client
 from prometheus_client import Counter
 
@@ -7,9 +7,9 @@ app = Flask(__name__)
 request_counter = Counter('cc', 'A counter') 
 
 @app.route("/", methods=['GET'])
-def hello():
+def index():
     request_counter.inc()
-    return "Hello, World!"
+    return render_template("index.html")
 
 @app.route("/metrics", methods=['GET'])
 def request_count():
