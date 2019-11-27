@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: default
+spec:
+  rules:
+  - host: appservice.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: app-service
+          servicePort: 5050
