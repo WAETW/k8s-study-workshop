@@ -65,7 +65,7 @@ Released   : 20131203
 
 <div id="id01" class="modal">
 
-  <form class="modal-content animate" method="POST" action="">
+  <form class="modal-content animate" method="POST" action={{url_for('login')}}>
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="{{ url_for('static',    filename='images/cover2.jpg') }}" alt="Avatar" class="avatar">
