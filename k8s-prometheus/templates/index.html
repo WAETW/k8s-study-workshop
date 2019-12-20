@@ -28,8 +28,8 @@ Released   : 20131203
 	<div id="header" class="container">
 		<div id="menu">
 			<ul>
-				<li class="current_page_item"><a href="#" accesskey="1" title="">主頁</a></li>
-				<!--<li><a href="register.html" accesskey="3" title="">註冊帳號</a></li>-->
+				<li class="current_page_item">
+				<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">註冊</button></li>
 			</ul>
 		</div>
 		<div id="logo">
@@ -65,7 +65,7 @@ Released   : 20131203
 
 <div id="id01" class="modal">
 
-  <form class="modal-content animate" method="POST" action={{url_for('login')}}>
+  <form class="modal-content animate" method="POST" action="{{url_for('login')}}">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="{{ url_for('static',    filename='images/cover2.jpg') }}" alt="Avatar" class="avatar">
@@ -90,6 +90,30 @@ Released   : 20131203
     </div>
   </form>
 </div>
+<div id="id02" class="modal">
+
+	<form class="modal-content animate" method="POST" action="{{url_for('signup')}}">
+	  <div class="imgcontainer">
+		<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+		<img src="{{ url_for('static',    filename='images/cover2.jpg') }}" alt="Avatar" class="avatar">
+	  </div>
+  
+		  <div class="container">
+			  <label for="uname"><b>使用者名稱</b></label>
+			  <input type="text" placeholder="輸入使用者名稱" name="username" required>
+  
+			  <label for="psw"><b>密碼</b></label>
+			  <input type="password" placeholder="輸入密碼" name="password" required>
+  
+			  <button type="submit">註冊</button>
+		  </div>
+  
+	  <div class="container" style="background-color:#f1f1f1">
+		<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">返回</button>
+  
+	  </div>
+	</form>
+  </div>
 
 <script>
 // Get the modal
