@@ -4,17 +4,18 @@ from prometheus_client import Counter
 import hashlib
 import json
 from flask_pymongo import PyMongo
-
+import os
 app = Flask(__name__)
-"""
+
+mongodb_host = os.environ.get('MONGODB_SVC_PORT_27017_TCP_ADDR')
 app.config.update(
-    MONGO_HOST='localhost',
-    MONGO_PORT=27017,
-    MONGO_USERNAME='admin',
-    MONGO_PASSWORD='admin',
-    MONGO_DBNAME='user'
-)"""
-app.config["MONGO_URI"] = "mongodb://172.17.0.2:27017/user"
+    MONGO_HOST = mongodb_host,
+    MONGO_PORT = 27017,
+    MONGO_USERNAME = 'admin',
+    MONGO_PASSWORD = 'admin',
+    MONGO_DBNAME = 'user'
+)
+app.config["MONGO_URI"] = "mongodb://" + mongodb_host + ":27017/user"
 mongo = PyMongo(app)
 request_counter = Counter('cc', 'A counter') 
 
